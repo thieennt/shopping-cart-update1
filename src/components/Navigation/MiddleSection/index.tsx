@@ -5,12 +5,15 @@ import LogoIcon from "../../../icons/Logo";
 import { Input } from "antd";
 import "antd/dist/antd.css";
 import Link from "next/link";
+import { useSelector } from "react-redux";
+import { RootState } from "../../../../store";
 
 const { Search } = Input;
 
 export interface IAppProps {}
 
 export default function Middlesection(props: IAppProps) {
+  const cart = useSelector((state: RootState) => state.cart);
   const onSearch = (value: string) => console.log(value);
   return (
     <div className="middle-container">
@@ -20,12 +23,7 @@ export default function Middlesection(props: IAppProps) {
           <span>Comforty</span>
         </div>
         <div className="search-section">
-          <Search
-            placeholder="Search here..."
-            allowClear
-            onSearch={onSearch}
-            // style={{ borderRadius: "20px", border: "none" }}
-          />
+          <Search placeholder="Search here..." allowClear onSearch={onSearch} />
         </div>
         <div className="cart-section">
           <Link href="/cart">
@@ -34,7 +32,9 @@ export default function Middlesection(props: IAppProps) {
                 <CiShoppingCart />
               </span>
               <span className="cart-text">Cart</span>
-              <span className="cart-number">2</span>
+              {cart.cartItems.length > 0 && (
+                <span className="cart-number">{cart.cartItems.length}</span>
+              )}
             </div>
           </Link>
           <div className="user-wrapper">

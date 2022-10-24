@@ -1,6 +1,6 @@
 .middle-container {
   width: 100%;
-  padding: 10px 2rem;
+  padding: 20px 2rem;
   background-color: #f0f2f3;
 
   .middle-wrapper {
@@ -65,5 +65,31 @@
         border-radius: 8px;
       }
     }
+  }
+
+  .ant-input-affix-wrapper {
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+  }
+
+  .ant-input-search .ant-input-group .ant-input-affix-wrapper:not(:last-child) {
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+  }
+
+  .ant-input-group > .ant-input:last-child,
+  .ant-input-group-addon:last-child {
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+  }
+
+  .ant-btn {
+    border: none;
+    outline: none;
+  }
+
+  .ant-input-group-addon {
+    background-color: #fff;
   }
 }
